@@ -1,0 +1,21 @@
+<h1 align="center">Bloggy Project Administrator</h1>
+<hr>
+<h2 align="center">All Posts</h2>
+<button class="btn btn-primary" (click)="postUser()">Local Page</button>
+<hr>
+<button class="btn btn-success float-right" (click)="createPost()">+ Create Post</button>
+
+<table align="center" border="1" class="table">
+  <tr><th>ID</th><th>image</th><th>Title</th><th>Author</th><th>Date of Creation</th><th>Details</th><th>Edit</th><th>Delete</th></tr>
+  <tr *ngFor="let post of posts">
+    <td>{{post.id}}</td>
+    <td><img src="{{post.image_url}}" width="100px"></td>
+    <td>{{post.title}}</td>
+    <td>{{post.full_name}}</td> <!--Attention, il faudra peut-être recharger la page pour voir les noms des auteurs-->
+    <td>{{post.created_at}}</td>
+    <td><a class="btn btn-primary" (click)="detailsPosts(post.id)">Read More</a></td>
+    <td><a class="btn btn-warning" (click)="editPost(post.id)">Edit Post</a></td>
+    <td><button class="btn btn-danger" (click)="deletePost(post.id)">Delete Post</button></td> <!--Attention, il faudra recharger la page pour que le delete soit visible-->
+  </tr>
+</table>
+<router-outlet></router-outlet>

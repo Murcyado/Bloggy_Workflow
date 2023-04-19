@@ -1,0 +1,28 @@
+<h1 align="center">Bloggy Project</h1>
+<hr>
+<h2 align="center">Our latest posts</h2>
+
+<button class="btn btn-primary" (click)="adminPosts()">Administrator Page</button>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div *ngIf="!posts">
+        <app-error-handle></app-error-handle>
+      </div>
+      <ul class="list-group" border="3" width="100px">
+        <li class="list-group-item" *ngFor="let post of posts">
+          <h5>Title : {{ post.title }}</h5>
+          <hr style="background-color: gray;">
+          <div>Content : {{ post.content }}</div>
+          <small>Author : {{ post.full_name }}</small> <!--Attention, il faudra peut-être recharger la page pour voir les noms des auteurs-->
+          <div><small>Date of creation : {{ post.created_at }}</small></div>
+          <img class="center-img" src={{post.image_url}} alt={{post.image_url}} width="100px">
+          <button (click)="detailsPosts(post.id)" class="btn btn-primary float-right">Read More</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+

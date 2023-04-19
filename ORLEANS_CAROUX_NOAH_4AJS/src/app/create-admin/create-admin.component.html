@@ -1,0 +1,34 @@
+<h1 align="center">Bloggy Project Administrator</h1>
+<hr>
+<h2 align="center">Create Post</h2>
+<form #addPostForm="ngForm" (ngSubmit)="createPost(addPostForm)">
+  <div class="form-group">
+    <label for="title">Post Title</label>
+    <input ngModel name="title" type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter your post title" required>
+  </div>
+
+  <div class="form-group">
+    <label for="postauthor">Author</label>
+    <select ngModel name="postauthor" class ="form-control" id="postauthor" aria-describedby="emailHelp" placeholder = "Select an author..." required>
+      <option disabled selected value="">Select an author</option>
+      <option *ngFor="let author of authors" [value]=author.id>{{ author.full_name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Post Image</label>
+    <input  ngModel name="image" type="text" class="form-control" id="image" aria-describedby="emailHelp" placeholder="Enter post image" required>
+  </div>
+
+  <div class="form-group">
+    <label for="resume">Post Resume</label>
+    <input  ngModel name="resume" type="text" class="form-control" id="resume" aria-describedby="emailHelp" placeholder="Enter your resume" required>
+  </div>
+
+  <div class="form-group">
+    <label for="content">Post Content</label>
+    <input  ngModel name="content" type="text" class="form-control" id="content" aria-describedby="emailHelp" placeholder="Enter post content" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
