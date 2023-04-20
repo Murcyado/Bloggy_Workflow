@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -18,13 +18,13 @@ jobs:
       run: cd Bloggy_WorkFlow/ORLEANS_CAROUX_NOAH_4AJS && npm install
       
     - name: Build project
-      run: cd Bloggy_WorkFlow/bloORLEANS_CAROUX_NOAH_4AJSggy && npm build
+      run: cd Bloggy_WorkFlow/ORLEANS_CAROUX_NOAH_4AJS && npm build
       
-    - name: Deploy to production
+    - name: Deploy bloggy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./Bloggy_WorkFlow/ORLEANS_CAROUX_NOAH_4AJS/build
-        user_name: your-username
-        user_email: your-email
-        commit_message: "Deploy bloggy to production"
+        user_name: Murcyado
+        user_email: noah.caroux@gmail.com
+        commit_message: "Deploy bloggy "
